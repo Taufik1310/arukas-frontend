@@ -15,7 +15,7 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-// Jika 401, hapus token dan redirect ke login
+// Jika 401, hapus token dan redirect ke login (kecuali sedang di halaman login)
 api.interceptors.response.use(
   (res) => res,
   (err) => {
@@ -24,7 +24,11 @@ api.interceptors.response.use(
       typeof window !== "undefined"
     ) {
       localStorage.removeItem("token");
-      window.location.href = "/login";
+      
+      // Cegah infinite loop / refresh paksa jika sudah di halaman login
+      if (window.location.pathname !== "/login") {
+        window.location.href = "/login";
+      }
     }
     return Promise.reject(err);
   }

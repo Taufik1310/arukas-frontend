@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 export default function LoginPage() {
   const { login, user, isLoading } = useAuth();
   const router = useRouter();
-  const [form, setForm]       = useState({ email: "admin@pos.com", password: "password" });
+  const [form, setForm]       = useState({ email: "admin@arukas.com", password: "password" });
   const [submitting, setSub]  = useState(false);
 
   // Kalau sudah login, langsung ke dashboard

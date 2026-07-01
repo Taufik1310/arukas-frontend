@@ -51,10 +51,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, [fetchUser]);
 
   const login = async (email: string, password: string) => {
-    const { data } = await authApi.login({ email, password });
-    localStorage.setItem("token", data.token);
-    setUser(data.data);
-    router.push("/dashboard");
+    try {
+      const { data } = await authApi.login({ email, password });
+      localStorage.setItem("token", data.token);
+      setUser(data.data);
+      router.push("/dashboard");
+    } catch (error) {
+      console.error("Detail Error Login:", error); // TAMBAHKAN INI
+      throw error; // Biarkan error terlempar ke LoginPage agar toast muncul
+    }
   };
 
   const logout = async () => {
