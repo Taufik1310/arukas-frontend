@@ -11,7 +11,7 @@ import { GoogleAuthButton } from "./GoogleAuthButton";
 export function LoginForm() {
   const { login, user, isLoading } = useAuth();
   const router = useRouter();
-  const [form, setForm]      = useState({ email: "admin@pos.com", password: "password" });
+  const [form, setForm]      = useState({ email: "admin@arukas.com", password: "admin123" });
   const [submitting, setSub] = useState(false);
 
   useEffect(() => {
@@ -51,7 +51,7 @@ export function LoginForm() {
         </div>
 
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Selamat Datang 👋</h1>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Selamat Datang</h1>
           <p className="text-gray-500 dark:text-gray-400">Masuk ke akun Anda untuk melanjutkan</p>
         </div>
 
@@ -95,13 +95,13 @@ export function LoginForm() {
         <div className="mt-6 p-4 rounded-xl bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800/50">
           <p className="text-xs font-semibold text-blue-700 dark:text-blue-300 mb-2">💡 Akun Demo</p>
           {[
-            { email: "admin@pos.com",   label: "Admin" },
-            { email: "petugas@pos.com", label: "Petugas" },
+            { email: "admin@arukas.com", password: "admin123", label: "Admin" },
+            { email: "petugas@arukas.com", password: "petugas123", label: "Petugas" },
           ].map((acc) => (
             <button key={acc.email} type="button"
-              onClick={() => setForm({ email: acc.email, password: "password" })}
+              onClick={() => setForm({ email: acc.email, password: acc.password })}
               className="w-full text-left text-xs text-blue-600 dark:text-blue-400 hover:text-blue-800 py-1 px-2 rounded hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors">
-              👤 {acc.label}: {acc.email} / password
+              👤 {acc.label}: {acc.email} / {acc.password}
             </button>
           ))}
         </div>

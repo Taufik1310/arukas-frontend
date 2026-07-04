@@ -44,7 +44,7 @@ export default function RegisterPage() {
       <div className="w-full lg:w-1/2 flex flex-col justify-center px-6 sm:px-12 lg:px-16 xl:px-24 py-12 overflow-y-auto">
         <div className="max-w-md w-full mx-auto">
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Buat Akun Baru 🚀</h1>
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Buat Akun Baru</h1>
             <p className="text-gray-500 dark:text-gray-400">Daftar gratis dan mulai kelola toko hari ini</p>
           </div>
 

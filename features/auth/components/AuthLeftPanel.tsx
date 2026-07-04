@@ -1,4 +1,4 @@
-import { FiShoppingCart, FiZap, FiBarChart2, FiShield } from "react-icons/fi";
+import { FiShoppingCart, FiZap, FiBarChart2, FiShield, FiEdit, FiStar, FiLock } from "react-icons/fi";
 
 interface Props { variant: "login" | "register"; }
 
@@ -36,7 +36,7 @@ function LoginContent() {
           </div>
         </div>
         <h2 className="text-white text-2xl font-bold leading-tight mb-3">
-          Kelola Toko Anda<br />dengan Lebih Cerdas
+          Kelola Toko Kamu<br />dengan Lebih Cerdas
         </h2>
         <p className="text-blue-200 text-sm leading-relaxed max-w-xs">
           Sistem kasir modern untuk pengelolaan produk, transaksi, dan laporan dalam satu platform.
@@ -62,9 +62,9 @@ function LoginContent() {
 
 function RegisterContent() {
   const steps = [
-    { icon: "📝", title: "Isi Data Diri", desc: "Nama, email, dan telepon Anda" },
-    { icon: "🔒", title: "Buat Password",  desc: "Password minimal 8 karakter" },
-    { icon: "🚀", title: "Mulai Gunakan", desc: "Akses semua fitur POS System" },
+    { icon: <FiEdit size={15} />, title: "Isi Data Diri", desc: "Nama, email, dan telepon Anda" },
+    { icon: <FiLock size={15} />, title: "Buat Password",  desc: "Password minimal 8 karakter" },
+    { icon: <FiStar size={15} />, title: "Mulai Gunakan", desc: "Akses semua fitur POS System" },
   ];
   return (
     <>
@@ -75,7 +75,7 @@ function RegisterContent() {
           {steps.map((s, i) => (
             <div key={i} className="flex items-start gap-4">
               <div className="flex flex-col items-center shrink-0">
-                <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center text-lg">{s.icon}</div>
+                <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center text-lg text-white">{s.icon}</div>
                 {i < steps.length - 1 && <div className="w-0.5 h-5 bg-white/20 mt-2" />}
               </div>
               <div>
@@ -95,18 +95,6 @@ function RegisterContent() {
             </div>
           ))}
         </div>
-        <div className="bg-white/10 border border-white/20 rounded-xl p-4">
-          <p className="text-white/90 text-sm italic">
-            &quot;Dengan POS System, pengelolaan toko jadi jauh lebih mudah.&quot;
-          </p>
-          <div className="flex items-center gap-2 mt-3">
-            <div className="w-7 h-7 rounded-full bg-white/30 flex items-center justify-center text-xs font-bold text-white">B</div>
-            <div>
-              <p className="text-white text-xs font-medium">Budi Santoso</p>
-              <p className="text-purple-200 text-xs">Pemilik Toko Kelontong</p>
-            </div>
-          </div>
-        </div>
       </div>
     </>
   );
@@ -116,10 +104,10 @@ export function AuthLeftPanel({ variant }: Props) {
   const isLogin = variant === "login";
   const gradient = isLogin
     ? "from-blue-600 via-blue-700 to-indigo-800"
-    : "from-indigo-600 via-purple-700 to-pink-700";
+    : "from-blue-600 via-blue-700 to-indigo-800";
 
   return (
-    <div className={`hidden lg:flex lg:w-1/2 relative overflow-hidden bg-linear-to-br ${gradient} flex-col justify-between p-12`}>
+    <div className={`hidden lg:flex lg:w-8/12 relative overflow-hidden bg-linear-to-br ${gradient} flex-col justify-start gap-10 p-12`}>
       {/* Decorative */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-24 -left-24 w-96 h-96 bg-white/5 rounded-full" />
@@ -133,10 +121,10 @@ export function AuthLeftPanel({ variant }: Props) {
           <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
             <FiShoppingCart size={20} className="text-white" />
           </div>
-          <span className="text-white font-bold text-xl">POS System</span>
+          <span className="text-white font-bold text-xl">Arukas</span>
         </div>
         <p className={`text-sm ${isLogin ? "text-blue-200" : "text-purple-200"}`}>
-          Point of Sales — Solusi Kasir Modern
+          Arukas | Solusi Kasir Modern
         </p>
       </div>
 

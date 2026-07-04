@@ -1,25 +1,3 @@
-"use client";
-import { useEffect, useState } from "react";
-
-export function useDarkMode() {
-  const [dark, setDark] = useState(() => {
-    const saved = localStorage.getItem("theme");
-    if (saved) {
-      return saved === "dark";
-    }
-    return window.matchMedia("(prefers-color-scheme: dark)").matches;
-  });
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", dark);
-  }, [dark]);
-
-  const toggle = () => {
-    const next = !dark;
-    setDark(next);
-    document.documentElement.classList.toggle("dark", next);
-    localStorage.setItem("theme", next ? "dark" : "light");
-  };
-
-  return { dark, toggle };
-}
+// hooks/useDarkMode.ts
+// Backward-compatible wrapper — pakai useTheme() untuk fitur baru
+export { useTheme as useDarkMode } from "@/context/ThemeContext";
