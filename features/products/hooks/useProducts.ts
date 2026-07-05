@@ -16,6 +16,7 @@ export function useProducts() {
   const [deleting,   setDeleting]   = useState<number | null>(null);
   const [scanning,   setScanning]   = useState(false);
   const [qrProduct,  setQrProduct]  = useState<Product | null>(null);
+  
 
   const fetchProducts = useCallback(async () => {
     setLoading(true);
@@ -62,5 +63,7 @@ export function useProducts() {
     startScan:  () => setScanning(true),
     stopScan:   () => setScanning(false),
     setQrProduct,
+    openQr:  (p: Product) => setQrProduct(p),
+    closeQr: () => setQrProduct(null),
   };
 }

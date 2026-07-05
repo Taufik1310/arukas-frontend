@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/atoms/Button";
 import { FormField } from "@/components/molecules/FormField";
-import MultiImageUpload from "@/components/MultiImageUpload";
+import MultiImageUpload from "@/components/organisms/MultiImageUpload";
 import { categoryApi, productApi, supplierApi } from "@/lib/api";
 import { Category, Product, Supplier } from "@/types";
 import { useRouter } from "next/navigation";
